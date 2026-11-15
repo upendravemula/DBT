@@ -1,0 +1,9 @@
+seeds:
+  - name: snd
+    config: 
+      column_types: 
+        id: varchar
+        ccode: varchar
+  - name: three
+    config: 
+      delimiter: "|"

@@ -1,0 +1,7 @@
+version: 2
+sources:
+  - name: Dev
+    database: DBT_DB
+    schema: DBT_RAW
+    tables:
+      - name: snd

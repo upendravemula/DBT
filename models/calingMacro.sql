@@ -1,9 +1,9 @@
 
 
 --select * from snd
-
 --select  {{addingnumber(1,2)}}
 
-select *
+
+select  {{cleandata('ccode')}}
 from 
 {{ source('Dev', 'snd') }}

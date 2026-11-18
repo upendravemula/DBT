@@ -5,3 +5,8 @@ sources:
     schema: DBT_RAW
     tables:
       - name: snd
+  - name: sal
+    database: DBT1
+    schema: DBT_MSCHEMA
+    tables:
+      - name: sales

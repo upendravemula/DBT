@@ -48,3 +48,5 @@ models:
       +secure: true
 vars: 
   name : '''upendra'''
+  Prewh : 'TESTDBT_WH'
+  postwh : 'COMPUTE_WH'

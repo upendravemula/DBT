@@ -15,6 +15,12 @@ models:
       - name: umailid
         tests:
           - mailvalidation
+  - name: final_tbl
+    columns:
+      - name: id
+        tests:
+          - tbl_duplicate
+               
       
           
           

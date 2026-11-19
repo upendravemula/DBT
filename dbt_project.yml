@@ -46,6 +46,14 @@ models:
     reporting:  
       +materialized: view
       +secure: true
+    Stag:
+      +materialized: table
+      +transient: true
+    final:
+      +materialized: table
+      +transient: false
+      +snowflake_warehouse: "DBT_WH"
+      
 vars: 
   name : '''upendra'''
   Prewh : 'TESTDBT_WH'

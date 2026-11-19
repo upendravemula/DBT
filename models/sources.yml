@@ -10,3 +10,7 @@ sources:
     schema: DBT_MSCHEMA
     tables:
       - name: sales
+      - name: userdetais
+      - name: empdetails
+      - name: customdetails
+  

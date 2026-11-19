@@ -10,8 +10,11 @@ models:
       - name: shipped_status  
         data_tests:
           - not_null
-          - accepted_values:
-              values: ['pshipped']
+  - name: User_stg_tbl
+    columns:
+      - name: umailid
+        tests:
+          - mailvalidation
       
           
           

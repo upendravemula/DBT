@@ -19,3 +19,8 @@ sources:
     schema: DBT_RAW
     tables:
       - name: emp_tbl
+      - name: emp_src
+      - name: emp_mb_src
+        config: 
+          event_time: 'updated_at'
+      - name: emp_schemachange_src    

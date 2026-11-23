@@ -1,0 +1,26 @@
+version: 2
+models:
+  - name: stg_sales
+    columns:
+      - name: id
+        tests:
+          -  unique
+          - not_null
+          
+      - name: shipped_status  
+        data_tests:
+          - not_null
+  - name: User_stg_tbl
+    columns:
+      - name: umailid
+        tests:
+          - mailvalidation
+  - name: final_tbl
+    columns:
+      - name: id
+        tests:
+          - tbl_duplicate
+               
+      
+          
+          

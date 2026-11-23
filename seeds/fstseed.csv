@@ -1,0 +1,9 @@
+id,countryname,ccode
+Ind,India,bha
+US,America,ca
+UK,UnitedKingdo,eng
+BL,brizel,bel
+
+
+--create new column in csv n run the seed then we will get breaking as we have extra column in csv but not in table
+-- then we need to do full refresh using --- DBT seed -s <seed_name> --full-refresh

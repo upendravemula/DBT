@@ -1,0 +1,38 @@
+version: 2
+sources:
+  - name: Dev
+    database: DBT_DB
+    schema: DBT_RAW
+    tables:
+      - name: snd
+  - name: sal
+    database: DBT1
+    schema: DBT_MSCHEMA
+    tables:
+      - name: sales
+      - name: userdetais
+      - name: empdetails
+      - name: customdetails
+      - name: emp
+  - name: RAW
+    database: DBT_DB
+    schema: DBT_RAW
+    tables:
+      - name: emp_tbl
+      - name: emp_src
+      - name: emp_mb_src
+        config: 
+          event_time: 'updated_at'
+      - name: emp_schemachange_src    
+      - name: emp_fresh_src
+        freshness:
+          warn_after:
+            count: 1
+            period: hour
+          error_after:
+            count: 3
+            period: hour
+        loaded_at_field: loaded_at
+
+
+        

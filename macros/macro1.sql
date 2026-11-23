@@ -1,0 +1,4 @@
+{% macro addingnumber(arg1, arg2) %}
+{{arg1}} + {{arg2}}
+    
+{% endmacro %}

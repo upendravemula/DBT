@@ -1,0 +1,8 @@
+exposures:
+  - name: SalDashboard
+    owner:
+      name: Upendra 
+    
+    type: dashboard
+    depends_on :
+      - ref('emp_incr')

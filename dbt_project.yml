@@ -40,3 +40,21 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
+    upendra:
+      +materialized: table
+      +transient: false
+    reporting:  
+      +materialized: view
+      +secure: true
+    Stag:
+      +materialized: table
+      +transient: true
+    final:
+      +materialized: table
+      +transient: false
+      +snowflake_warehouse: "DBT_WH"
+      
+vars: 
+  name : '''upendra'''
+  Prewh : 'TESTDBT_WH'
+  postwh : 'COMPUTE_WH'

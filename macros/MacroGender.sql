@@ -1,6 +1,6 @@
 
 
-{% macro macrogender(gendertype) %}
+{% macro macrogenderCol(gendertype) %}
 
 case when {{gendertype}} = 'm' then 'male'
 when {{gendertype}} = 'f' then 'female'

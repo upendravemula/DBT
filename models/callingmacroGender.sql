@@ -1,6 +1,6 @@
 select * ,
 
-{{macrogender('gender')}} 
+{{macrogenderCol('gender')}} 
 
 
 from clone_emp

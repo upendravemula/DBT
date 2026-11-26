@@ -51,23 +51,23 @@ marts (tables)           dim_customers, fct_orders (incremental)
 
 **CI run on a pull request** (deferred mode, temporary schema)
 
-![CI run summary](docs/images/image1.png)
+![CI run summary](docsimage1.png)
 
 **CI model timing**
 
-![CI model timing](docs/images/image2.png)
+![CI model timing](docs/image2.png)
 
 **Production run**
 
-![Production run](docs/images/image3.png)
+![Production run](docs/image3.png)
 
 **Lineage graph**
 
-![Lineage](docs/images/image4.png)
+![Lineage](docs/image4.png)
 
 **GitHub pull request with the dbt Cloud check**
 
-![GitHub PR check](docs/images/image5.png)
+![GitHub PR check](docs/image5.png)
 
 ## Design decisions and lessons learned
 

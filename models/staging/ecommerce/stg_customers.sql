@@ -1,3 +1,4 @@
+-- staging model for customers: CI test change
 with source as (
 
 select * from {{ source('ecommerce', 'customers') }} 

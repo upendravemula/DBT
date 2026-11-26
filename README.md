@@ -51,7 +51,7 @@ marts (tables)           dim_customers, fct_orders (incremental)
 
 **CI run on a pull request** (deferred mode, temporary schema)
 
-![CI run summary](docsimage1.png)
+![CI run summary](docs/image1.png)
 
 **CI model timing**
 

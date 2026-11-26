@@ -1,0 +1,35 @@
+version: 2
+models:
+  - name: dim_customers
+    description: One row per customer, with attributes and lifetime order metrics.
+    columns:
+      - name: customer_id
+        description: Primary key of the customer.
+        data_tests:
+         - not_null
+         - unique
+  - name: fct_orders
+    description: One row per order, with item totals and payment details.
+    columns:
+      - name: order_id
+        description: Primary Key of order
+        data_tests:
+          - unique
+          - not_null
+      - name: status
+        description: Current order status.
+        data_tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'delivered', 'returned', 'cancelled']       
+      - name: customer_id
+        description: Foreign key to dim_customers
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id    
+                
+                
+ 
+      
+  

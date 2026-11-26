@@ -42,4 +42,4 @@ customers cust left outer join totals t on cust.customer_id=t.customer_id
 
 )
 
-select * from final
+select * from final 

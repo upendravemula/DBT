@@ -1,0 +1,21 @@
+models:
+  - name: int_order_payments
+    description: One row per order, with the payment method and payment amount.
+    columns:
+      - name: order_id
+        description: Primary key of the order.
+        data_tests:
+          - not_null
+          - unique
+  - name: int_order_totals
+    description: One row per order, with item count and order total calculated from order items.
+    columns:
+      - name: order_id
+        description: Primary key of the order.
+        data_tests:
+          - not_null
+          - unique
+          
+                  
+          
+          

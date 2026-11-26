@@ -47,6 +47,29 @@ marts (tables)           dim_customers, fct_orders (incremental)
 - **Environments and jobs:** a Production environment, a `nightly_prod` job (source freshness, then build) and a slim CI job.
 - **Slim CI:** on each pull request, `dbt build --select state:modified+` builds only changed models and their children, deferring unchanged upstream models to production.
 
+- ## CI/CD
+
+Changes move from a feature branch to production through a pull request, with three dbt Cloud jobs.
+
+| | CI job | Merge job | nightly_prod (deploy job) |
+|---|---|---|---|
+| Runs when | A pull request is opened or updated | A pull request is merged into `DBTLearning` | On demand, or on a schedule |
+| Command | `dbt build --select state:modified+` | `dbt build --select state:modified+` | `dbt source freshness`, then `dbt build` on the project folders |
+| Builds into | Temporary schema `dbt_cloud_pr_*` | `ANALYTICS_PROD.ANALYTICS` | `ANALYTICS_PROD.ANALYTICS` |
+| Changes production tables? | No | Yes | Yes |
+| Purpose | Test the change before it is merged | Deploy the merged change within minutes | Full rebuild as a safety net |
+
+**Flow of one change**
+
+1. Create a branch from `DBTLearning` and edit the model. Build it in `ANALYTICS_DEV` from the IDE.
+2. Commit and open a pull request into `DBTLearning`.
+3. The CI job builds only the changed models and their children into a temporary schema. Unchanged upstream models are read from production through defer, so the check takes about 30 seconds.
+4. After the check passes, merge the pull request.
+5. The merge job deploys the changed models into production.
+6. `nightly_prod` rebuilds everything as a safety net.
+
+**Verified end to end:** a test column added to `stg_customers` appeared in the CI temporary schema first, and appeared in `ANALYTICS_PROD.ANALYTICS.STG_CUSTOMERS` only after the merge job ran.
+
 ## Screenshots
 
 **CI run on a pull request** (deferred mode, temporary schema)
@@ -67,7 +90,9 @@ marts (tables)           dim_customers, fct_orders (incremental)
 
 **GitHub pull request with the dbt Cloud check**
 
-![GitHub PR check](docs/image5.png)
+![GitHub PR check](docs/image7.png)
+
+![GitHub PR check](docs/image6.png)
 
 ## Design decisions and lessons learned
 

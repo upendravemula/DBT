@@ -90,7 +90,7 @@ Changes move from a feature branch to production through a pull request, with th
 
 **GitHub pull request with the dbt Cloud check**
 
-![GitHub PR check](docs/image6.png)
+![GitHub PR check](docs/images/image5.png)
 
 ## Design decisions and lessons learned
 

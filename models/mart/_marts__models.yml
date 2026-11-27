@@ -1,13 +1,29 @@
 version: 2
 models:
   - name: dim_customers
+    config: 
+      contract: 
+        enforced: true
     description: One row per customer, with attributes and lifetime order metrics.
     columns:
       - name: customer_id
+        data_type: number
         description: Primary key of the customer.
         data_tests:
          - not_null
          - unique
+      - name: fullname
+        data_type: varchar
+      - name: email
+        data_type: varchar
+      - name: city
+        data_type: varchar
+      - name: created_at
+        data_type: date
+      - name: lifetime_orders
+        data_type: number
+      - name: lifetime_value
+        data_type: number     
   - name: fct_orders
     description: One row per order, with item totals and payment details.
     columns:
@@ -16,6 +32,10 @@ models:
         data_tests:
           - unique
           - not_null
+      - name: order_total
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value : 0    
       - name: status
         description: Current order status.
         data_tests:

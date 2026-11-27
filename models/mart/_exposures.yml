@@ -1,0 +1,13 @@
+version: 2
+
+exposures:
+  - name: sales_dashboard
+    type: dashboard
+    maturity: medium
+    owner:
+      name: Upendra Vemula
+      email: upendra.vde@gmail.com
+    description: Sales overview dashboard used by the business team.
+    depends_on:
+      - ref('fct_orders')
+      - ref('dim_customers')
